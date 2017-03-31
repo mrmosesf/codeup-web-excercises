@@ -1,0 +1,45 @@
+h2 {
+    text-decoration: underline;
+    color: purple;
+}
+
+div {
+    font-size: 2em;
+    width:200px;
+    height:100px;
+    border: solid 2px black;
+    color: white;
+    margin-bottom: 10px;
+    padding: 10px;
+    /*An attempt was made to make white on yellow legible
+    -webkit-text-stroke: 1px black;*/
+}
+
+#red {
+    background-color: red;
+}
+
+#orange {
+    background-color: orange;
+    margin-left: 20px;
+}
+
+#yellow {
+    background-color: yellow;
+    margin-left: 40px;
+}
+
+#green {
+    background-color: green;
+    margin-left: 60px;
+}
+
+#blue {
+    background-color: blue;
+    margin-left: 80px;
+}
+
+#violet {
+    background-color: violet;
+    margin-left: 100px;
+}
