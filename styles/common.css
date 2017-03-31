@@ -1,0 +1,72 @@
+    /*Selectors*/
+    /*element selector*/
+header {
+    /*CSS rule*/
+    /*property: value*/
+    /*key-value pair*/
+    background-color: #24292e;
+}
+a { /*Rules delimter*/
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.top-navigation {
+    font-weight: bold;
+}
+
+/*This is code smell*/
+/*nav.top-navigation a{
+    color: #586069;
+    text-decoration: none;
+}*/
+
+#current {
+    background-color: #0366d6;
+    color: #fff;
+}
+
+#current > a {
+    color: #fff;
+}
+
+.pill-nav {
+    border-style: solid;
+    border-color: #e1e4e8;
+    border-width: 1px;
+}
+
+p > strong {
+    color: burlywood;
+}
+
+a:link {
+    color: skyblue;
+}
+
+a:visited {
+    text-decoration: line-through;
+    color:darkred;
+}
+
+a:hover{
+    font-size: 50px;
+}
+
+a:active {
+    background-color: red;
+}
+
+/*Which ID is more important
+
+    1. IDs
+    2. Classes
+    3. Elements
+
+*/
+
+/*Code smell - Kent Beck*/
