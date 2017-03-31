@@ -5,6 +5,7 @@
     <title>My First HTML Form</title>
 </head>
 <body>
+    <h2>User login</h2>
     <form method="POST" action="http://requestb.in/17mxutr1">
         <p>
             <label for="username">Username</label>
@@ -18,5 +19,81 @@
             <input type="submit">
         </p>
     </form>
+
+    <h2>Compose an Email</h2>
+    <form method="POST" action="http://requestb.in/17mxutr1">
+        <p>
+            <label for="to">To</label>
+            <input id="to" name="to" type="text">
+        </p>
+        <p>
+            <label for="from">From</label>
+            <input id="from" name="from" type="text">
+        </p>
+        <p>
+            <label for="subj">Subject</label>
+            <input id="subj" name="subject" type="text">
+        </p>
+        <p>
+            <textarea name="body" id="body" cols="30" rows="10"></textarea>
+            <br>
+            <label for="body">Body</label>
+        </p>
+        <p>
+            <label for="saveSent">Save a copy to sent folder?</label>
+            <input id="saveSent" type="checkbox" name="save[]" value="save">
+        </p>
+        <p>
+            <button>Send</button>
+        </p>
+    </form>
+
+    <h2>Mutliple choice test</h2>
+    <form action="http://requestb.in/17mxutr1">
+
+        <p>Where's Waldo?
+
+        <label for="q1">Here</label>
+        <input id="q1" type="radio" name="a1" value="1">
+
+        <label for="q2">There</label>
+        <input id="q2" type="radio" name="a1" value="2">
+        </p>
+
+        <p>Who are you?
+
+        <label for="a2">Me</label>
+        <input id="a2" type="checkbox" name="me" value="me">
+
+        <label for="a3">Myself</label>
+        <input id="a3" type="checkbox" name="me" value="myself">
+
+        <label for="a4">I</label>
+        <input id="a4" type="checkbox" name="me" value="I">
+        </p>
+
+        <label for="cotton">Where did you:</label>
+        <br>
+        <select name="cottonEye" id="cotton" multiple>
+            <option value="come">Come from?</option>
+            <option value="go">Go?</option>
+            <option value="joe">Come from Cotton Eye Joe?</option>
+        </select>
+        
+        <br><br>
+        <button>Found him and/or myself!</button>
+    </form>
+
+    <h2>Select Testing</h2>
+    <form action="http://requestb.in/17mxutr1">
+        <label for="dropQ">Do you like ice cream</label>
+        <select name="iceCream?" id="dropQ">
+            <option selected value="yes">Oh hell yes</option>
+            <option value="no">No, I'm boring</option>
+        </select>
+
+        <button>Submit</button>
+    </form>
+
 </body>
 </html>
