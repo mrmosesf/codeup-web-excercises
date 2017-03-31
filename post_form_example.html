@@ -21,13 +21,13 @@
     <p>What's your favorite color?</p>
 
     <label for="blue">Blue</label>
-    <input id="blue" type="checkbox" name="color" value="blue">
+    <input id="blue" type="checkbox" name="color[]" value="blue">
 
     <label for="red">Red</label>
-    <input id="red" type="checkbox" name="color" value="red">
+    <input id="red" type="checkbox" name="color[]" value="red">
 
     <label for="green">Green</label>
-    <input id="green" type="checkbox" name="color" value="green">
+    <input id="green" type="checkbox" name="color[]" value="green">
 
     <p>What day is it?</p>
     <label for="monday">Monday</label>
@@ -39,7 +39,17 @@
     <label for="wednesday">Wednesday</label>
     <input id="wednesday" type="radio" name="day" value="3">
 
+    <br><br>
+    <label for="address">Address</label>
+    <textarea name="address" id="address" cols="10" rows="5"></textarea>
 
+    <br><br>
+    <label for="consoles">Consoles</label>
+    <select name="console" id="consoles">
+        <option value="ps4">PS4</option>
+        <option value="xb1">Xbox One</option>
+        <option value="switch">Nintendo Switch</option>
+    </select>
 
     <br><br>
     <button>Create a new user</button>
@@ -50,7 +60,7 @@
 
 </form>
 
-<h1>Mutliple choice test</h1>
+<h2>Mutliple choice test</h2>
 <form action="http://requestb.in/17mxutr1">
 
     <p>Where's Waldo?</p>
