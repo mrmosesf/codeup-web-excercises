@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="http://requestb.in/17mxutr1" method="POST">
+    
+    <label for="fname">Name</label>
+    <input id="fname" type="text" name="fname" placeholder="What's your name?">
+
+    <label for="age">Age</label>
+    <input id="age" type="text" name="age">
+
+    <label for="pass">Password</label>
+    <input id="pass" type="password" name="pass">
+
+    <br>
+    <p>What's your favorite color?</p>
+
+    <label for="blue">Blue</label>
+    <input id="blue" type="checkbox" name="color[]" value="blue">
+
+    <label for="red">Red</label>
+    <input id="red" type="checkbox" name="color[]" value="red">
+
+    <label for="green">Green</label>
+    <input id="green" type="checkbox" name="color[]" value="green">
+
+    <p>What day is it?</p>
+    <label for="monday">Monday</label>
+    <input id="monday" type="radio" name="day" value="1">
+
+    <label for="tuesday">Tuesday</label>
+    <input id="tuesday" type="radio" name="day" value="2">
+
+    <label for="wednesday">Wednesday</label>
+    <input id="wednesday" type="radio" name="day" value="3">
+
+    <br><br>
+    <label for="address">Address</label>
+    <textarea name="address" id="address" cols="10" rows="5"></textarea>
+
+    <br><br>
+    <label for="consoles">Consoles</label>
+    <select name="console" id="consoles">
+        <option value="ps4">PS4</option>
+        <option value="xb1">Xbox One</option>
+        <option value="switch">Nintendo Switch</option>
+    </select>
+
+    <br><br>
+    <button>Create a new user</button>
+
+    <!--<input type="submit" value="Send">-->
+
+    <input type="hidden" name="ssn" value="0000">
+
+</form>
+
+<h2>Mutliple choice test</h2>
+<form action="http://requestb.in/17mxutr1">
+
+    <p>Where's Waldo?</p>
+
+    <label for="q1">Here</label>
+    <input id="q1" type="radio" name="a1" value="1">
+
+    <label for="q2">There</label>
+    <input id="q2" type="radio" name="a1" value="2">
+
+    <p>Who are you?</p>
+
+    <label for="a2">Me</label>
+    <input id="a2" type="checkbox" name="me" value="me">
+
+    <label for="a3">Myself</label>
+    <input id="a3" type="checkbox" name="me" value="myself">
+
+    <label for="a4">I</label>
+    <input id="a4" type="checkbox" name="me" value="I">
+
+    <br><br>
+    <button>Found him and/or myself!</button>
+</form>
+
+</body>
+</html>

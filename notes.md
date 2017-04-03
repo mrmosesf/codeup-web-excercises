@@ -1,4 +1,4 @@
-# Notes
+# Vocab
 
 markdown, is a language similar to HTML, it's used to describe the structure of a document. The advantage is its syntax is shorter
 prompt, the text before the cursor on a terminal.
@@ -6,6 +6,8 @@ element, the most basic part of HTML, setup by its enclosing tags
 repertoire, the set of numeric representations of characters
 ASCII, grouped of 8, represented in binary, creating a byte, from 0 to 255
 utf8, most commonly used character set
+CDN, content delivery network, this AWS S3 and its buckets
+HTML entities, starts with '&' and ends with ';', i.e. &copy;
 
 #Git
 
@@ -55,9 +57,85 @@ The value of some attributes is optional, for instance,  disabled in input. Quot
 Absolute: starts with a '/'
 Relative: begin listing the path
 
-# Servers paths
+## Servers paths
 
 The root folder of a server usually is not the same as the root folder of the machine
 For our projects the root of the server is directory where out HTML pages are.
 For instance 'pinnacles_html'. This folder is called the **public directory**
 
+# Protocols
+
+HTTP, Hyper-Text Transfer Protocol
+
+HTTP messages
+Request - Client-side - Browser
+Response - Server-side - Web server
+
+GET - Read - Download
+POST - Write - Sending
+
+Query string
+
+key = value - key-value pair
+
+
+?search_query=javascript
+
+# CSS
+
+3 different sway to style on HTML
+
+Inline styles, use style HTML attribute directly
+Embedded styles, create a style element in the head section of your document
+External stylesheets, use a link element to the link the current document to the stylesheet
+
+## CSS selectors
+
+Element, use tag name
+ID, unique elements on a page
+class, several elements with similar visual appearance
+
+## Specificity
+
+Prioritize the rules based on the different types of selectors
+
+1. ID
+2. Class
+3. Elements
+
+## Pseudo classes
+
+Represent state on a element, for instance the states of a link (anchor tag)
+
+* link
+* visited
+* hover
+* active
+
+## Properties
+
+* Text properties
+* Font properties
+    * Serif
+    * Sans serif
+    * Monotype
+* Background properties
+* List properties
+
+## Box model
+
+* Everything is in a box in a page
+* Defines the position to the elements of a page
+* Space -> Size
+    * x, y, padding, border -> Size
+        * total x = x + padding + border
+        * total y = y + padding + border
+* Margin, space measured inwards
+* Padding, space measured outwards
+
+# Fixed, fluid, and responsive
+
+Fixed was cool back when the base was 960px, but fluid is better and responsive is where it's at
+* Using the 'viewport' is a good way to control size for mobile sites, otherwise website will be hardwawre pixels:
+    * ' meta name = "viewport" content="width=device-width, initial-scale=1" '
+* Media queries can be understood to be conditional stylesheets, that'll load certain styles only if device meets required size
