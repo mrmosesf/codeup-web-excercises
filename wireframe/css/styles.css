@@ -14,9 +14,21 @@ body {
     box-sizing: border-box;
 }
 
+main{
+    max-width: 80%;
+    float: left;
+}
+
+aside{
+    max-width: 20%;
+    clear: left;
+    float: right;
+}
+
 /*Removes bullets from the list*/
 nav > ul {
     list-style-type: none;
+    float: right;
 }
 
 /* Layout */
@@ -26,7 +38,7 @@ header > h1 {
 }
 
 header > nav {
-    float: right;
+    float: left;
 }
 
 .nav-item {
@@ -44,14 +56,18 @@ header > nav {
     max-height: 100%;
 }
 
+/*Allows align with social icons*/
 #copy{
+    clear: left;
     float: left;
 }
 
+
+
 /*Places footer items in a single row*/
 .footer-item{
-float: right;
-display: inline-block;
+    float: right;
+    display: inline-block;
 }
 
 /*What will display on a desktop site*/
@@ -63,17 +79,19 @@ display: inline-block;
 
 /*What to display on a mobile screen*/
 @media screen  and (max-width: 480px){
+    /*Make message visible and eye catching*/
     #top_msg{
     visibility: visible;
     background-color: skyblue;
 }
+    /*Makes nav-items mobile friendly, i.g. colored, one after another*/
     .nav-item{
-    background-color: #e1e4e8;
-    display: block;
+        background-color: #e1e4e8;
+        display: block;
         padding-left: 40%;
         padding-right: 40%;
         float: left;
-        align-content: center;
+        clear: both;
     }
 
     h1{
