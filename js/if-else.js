@@ -16,50 +16,55 @@ else{
 }
 
 // HEB discount
-var ryan = "Ryan";
-var ryanPays = 250.00;
+var person1 = "Ryan";
+var person1Pays = 250.00;
 
-var cameron = "Cameron";
-var cameronPays= 180.00;
+var person2 = "Cameron";
+var person2Pays= 180.00;
 
-var george = "George";
-var georgePays = 320.00;
+var person3 = "George";
+var person3Pays = 320.00;
 
-if(ryanPays > 200.00){
-    var ryanDiscount = ryanPays * 0.65;
-    console.log(ryan + " bought $" + ryanPays.toFixed(2) + " worth of products. Final payment: $" + ryanDiscount.toFixed(2));
+var discountRate = 0.65;
+
+var discountBreakpoint = 200.00
+
+if(person1Pays > discountBreakpoint){
+    var person1Discount = person1Pays * discountRate;
+    console.log(person1 + " bought $" + person1Pays.toFixed(2) + " worth of products. Final payment: $" + person1Discount.toFixed(2));
 }
 else{
-    console.log(ryan + " bought $" + ryanPays.toFixed(2) + " worth of products. Final payment: $" + ryanPays.toFixed(2));
+    console.log(person1 + " bought $" + person1Pays.toFixed(2) + " worth of products. Final payment: $" + person1Pays.toFixed(2));
 }
 
-if(cameronPays > 200.00){
-    var cameronDiscount = cameronPays * 0.65;
-    console.log(cameron + " bought $" + cameronPays.toFixed(2) + " worth of products. Final payment: $" + cameronDiscount.toFixed(2));
+if(person2Pays > discountBreakpoint){
+    var person2Discount = person2Pays * discountRate;
+    console.log(person2 + " bought $" + person2Pays.toFixed(2) + " worth of products. Final payment: $" + person2Discount.toFixed(2));
 }
 else{
-    console.log(cameron + " bought $" + cameronPays.toFixed(2) + " worth of products. Final payment: $" + cameronPays.toFixed(2));
+    console.log(person2 + " bought $" + person2Pays.toFixed(2) + " worth of products. Final payment: $" + person2Pays.toFixed(2));
 }
 
-if(georgePays > 200.00){
-    var georgeDiscount = georgePays * 0.65;
-    console.log(george + " bought $" + georgePays.toFixed(2) + " worth of products. Final payment: $" + georgeDiscount.toFixed(2));
+if(person3Pays > discountBreakpoint){
+    var person3Discount = person3Pays * discountRate;
+    console.log(person3 + " bought $" + person3Pays.toFixed(2) + " worth of products. Final payment: $" + person3Discount.toFixed(2));
 }
 else{
-    console.log(george + " bought $" + georgePays.toFixed(2) + " worth of products. Final payment: $" + georgePays.toFixed(2));
+    console.log(person3 + " bought $" + person3Pays.toFixed(2) + " worth of products. Final payment: $" + person3Pays.toFixed(2));
 }
 
 // Buy a car or house
 var flipACoin = Math.floor(Math.random()* 2);
 
-if (flipACoin === 0){
-    console.log("Buy a car!");
+if (flipACoin){
+    console.log("Buy a house!");
 }
 else{
-    console.log("Buy a house!");
+    console.log("Buy a car!");
 }
 
 /*
 Car/house ternary example
 var flipACoin = Math.floor(Math.random()*2;
-var flipACoin = 0 ? "Buy a car!": "Buy a house";*/
+var choice = (flipACoin) ? "Buy a car!": "Buy a house";
+console.log(choice);*/
