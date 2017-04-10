@@ -29,6 +29,8 @@ var discountRate = 1 - 0.35;
 
 var discountBreakpoint = 200.00
 
+// In the future, should assign a variable, and then treat the conditonal like a function, i.e. seperate customer variable, their pay ammount, set each time before the if. No need for an else.
+
 if(person1Pays > discountBreakpoint){
     var person1Discount = person1Pays * discountRate;
     console.log(person1 + " bought $" + person1Pays.toFixed(2) + " worth of products. Final payment: $" + person1Discount.toFixed(2));
