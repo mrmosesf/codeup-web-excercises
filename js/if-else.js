@@ -25,7 +25,7 @@ var person2Pays= 180.00;
 var person3 = "George";
 var person3Pays = 320.00;
 
-var discountRate = 0.65;
+var discountRate = 1 - 0.35;
 
 var discountBreakpoint = 200.00
 
