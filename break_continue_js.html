@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Break Continue JS</title>
+</head>
+<body>
+
+
+<script>
+//    Strict mode
+    "use strict";
+
+    var oddPlaceToStop = Math.floor(Math.random()*50) + 1;
+
+    while(oddPlaceToStop % 2 === 0){    /*So, what was actually being asked was for a while with a nested if stopped with a break, doing the same thing*/
+        oddPlaceToStop = Math.floor(Math.random()*50) +1;
+    }
+    console.log("An odd place to skip is "+ oddPlaceToStop);
+
+
+    for (var i = 1; i < 50; i++){
+        if(oddPlaceToStop === i){
+            console.log("Nope, skip it, it's "  + oddPlaceToStop);
+            continue;
+        }
+        if(i % 2 === 1){
+            console.log("Here's an odd number " + i);
+        }
+    }
+
+</script>
+
+</body>
+</html>
