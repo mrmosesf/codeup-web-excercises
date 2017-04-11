@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>While loops</title>
+</head>
+<body>
+
+
+<script>
+//    Strict mode
+    "use strict";
+//    Ice cream problem
+    var allCones = Math.floor(Math.random()*50) + 50;
+    var conesBuying = null;
+    var conesSold = null;
+
+    console.log("I have " + allCones + "ice cream cones in inventory.");
+
+    do{
+        conesBuying = Math.floor(Math.random()*5) + 1;
+        if (allCones < conesBuying && allCones)
+        {
+            console.log("I don't have enough cones");
+        }
+        else {
+            conesBuying = conesSold;
+        }
+        allCones = allCones - conesSold;
+        console.log(allCones);
+    } while (allCones > 0); /*Or while all cones is greater than 0*/
+
+//    Cubing problem
+
+    var numberSquare = 1;
+
+    while (numberSquare <  65536){
+        numberSquare *= 2;
+        console.log(numberSquare);
+    }
+
+</script>
+</body>
+</html>
