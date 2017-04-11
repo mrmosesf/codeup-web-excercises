@@ -25,9 +25,9 @@
     console.log("---Problem 2---")
 
 //    Even/odd problem
-    for(var y = 0; y < 9; y++){
+    for(var y = 0; y < 10; y++){
         var randomNumber = Math.floor(Math.random() * 180) + 20;
-        if(randomNumber % 2 == 0)
+        if(randomNumber % 2 == 0) /*This statement will evaluate to false without checking to 0, so, currently redundant*/
         {
             console.log(randomNumber + " is even");
         }
@@ -42,6 +42,23 @@
     {
         console.log(z * 5);
     }
+
+    console.log("---Challenge problem---");
+
+//    Challenge problem
+
+    var randomListNumber = null;
+//    Create a variable, begins with <ul> and ends with </ul>,
+
+    console.log("<ul>");
+
+    for(var l = 1; l <= 5; l++){
+        randomListNumber = Math.floor(Math.random()*10) + 10;
+        console.log("   <li>Random "+randomListNumber+"</li>") /*Would actually be adding it to the previously defined variable*/
+    }
+
+    console.log("</ul>");
+//    Last console.log would output
 
 </script>
 </body>
