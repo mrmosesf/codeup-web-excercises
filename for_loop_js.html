@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>For Loops</title>
+</head>
+<body>
+
+
+<script>
+
+//    Stirct mode
+    "use strict";
+
+
+//    Multiplication table
+    var multiplyBy = Math.floor(Math.random()*10) + 1;
+    var result = null;
+
+    for (var i = 1; i <= 10; i++) {
+        result = i * multiplyBy;
+        console.log(multiplyBy + "x" + i + "=" + result);
+    }
+
+    console.log("---Problem 2---")
+
+//    Even/odd problem
+    for(var y = 0; y < 9; y++){
+        var randomNumber = Math.floor(Math.random() * 180) + 20;
+        if(randomNumber % 2 == 0)
+        {
+            console.log(randomNumber + " is even");
+        }
+        else{
+            console.log(randomNumber + " is odd");
+        }
+    }
+
+    console.log("---Problem 3---")
+
+    for(var z = 20; z > 0; z--)
+    {
+        console.log(z * 5);
+    }
+
+</script>
+</body>
+</html>
