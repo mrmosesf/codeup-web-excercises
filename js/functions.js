@@ -13,7 +13,7 @@ var myNameIs = 'Moses'; // TODO: Fill in your name here.
 
 
     function sayHello(name){
-    return "Hello " + name;
+        return "Hello " + name;
 }
 
 
@@ -44,8 +44,8 @@ var random = Math.floor((Math.random()*100)+1);
  */
 
     function isOdd(number) {
-    var message = (number % 2 === 1) ? number + " is odd" : number + " is not odd"
-    return message;
+        var message = (number % 2 === 1) ? number + " is odd" : number + " is not odd"
+        return message;
 }
 
 /**
@@ -55,3 +55,69 @@ var random = Math.floor((Math.random()*100)+1);
  */
 
     console.log(isOdd(random));
+
+// Extra challenges
+
+    function randomMinMax(max, min) {
+        var rando = Math.floor(Math.random()* (max - min) + min);
+        return rando;
+    }
+
+    function dateChanger(dateNumbers) {
+        var month = dateNumbers.substring(0,2);
+        console.log(month);
+        var day = dateNumbers.substring(3,5);
+        var year = dateNumbers.substring(6,8);
+
+        var monthString = "";
+        var dayString = day;
+        var yearString = "";
+
+        switch (month){
+            case "01":
+                monthString = "January";
+                break;
+            case "02":
+                monthString = "February";
+                break;
+            case "03":
+                monthString = "March";
+                break;
+            case "04":
+                monthString = "April";
+                break;
+            case "05":
+                monthString = "May";
+                break;
+            case "06":
+                monthString = "June";
+                break;
+            case "07":
+                monthString = "July";
+                break;
+            case "08":
+                monthString = "August";
+                break;
+            case "09":
+                monthString = "September";
+                break;
+            case "10":
+                monthString = "October";
+                break;
+            case "11":
+                monthString = "November";
+                break;
+            case "12":
+                monthString = "December";
+                break;
+        }
+        if((parseInt(year)) > 17 ){
+            yearString = "19" + year;
+        }
+        else {
+            yearString = "20" + year;
+        }
+
+
+        return monthString + " " + dayString + " " + yearString;
+    }
