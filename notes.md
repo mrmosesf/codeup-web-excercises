@@ -139,3 +139,18 @@ Fixed was cool back when the base was 960px, but fluid is better and responsive 
 * Using the 'viewport' is a good way to control size for mobile sites, otherwise website will be hardwawre pixels:
     * ' meta name = "viewport" content="width=device-width, initial-scale=1" '
 * Media queries can be understood to be conditional stylesheets, that'll load certain styles only if device meets required size
+
+#Warm up
+
+1) Scripting language for web pages with object-oriented, imperatives, and declarative styles.
+2) IF gate, written in shorthand for binary statements
+3) Similar to a WHILE gate, it checks if a certain value against multiples
+4) An explanation of code that could be used, and should be used when abstracting a program
+5) false, NaN, 0, "", '', undefined, null
+6) All elements, when evaluated as a boolean, has an characteristic of truth, i.e. a non-emptry string will be coerced into true
+7) It allows values to be easily changed from a single line of code, and provides explanation why a certain value was used
+8) The direction the program is running, i.e. nested loops, while statements, etc.
+9) A statement allows you to execute code based on certain conditions. 
+10) The comparison of the given variable with a value
+11) Unforgiving mode, JavaScript will allow certain errors to pass therefore not throwing any errors, enabling the mode will require explicit use of the language, i.e. var, closing expressions; "use strict"; forces better syntax use
+12) Inline with a script tag in HTML, and the JS code within, or a exteranl script with a src reference. 
