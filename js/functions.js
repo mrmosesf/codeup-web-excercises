@@ -117,7 +117,5 @@ var random = Math.floor((Math.random()*100)+1);
         else {
             yearString = "20" + year;
         }
-
-
         return monthString + " " + dayString + " " + yearString;
     }
