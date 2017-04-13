@@ -33,7 +33,7 @@
     var twentyFourHolder = mTo24.split(":");
     console.log(twentyFourHolder);
     var nearlyMeridian = null;
-    if(twentyFourHolder[0] > 13){
+    if(twentyFourHolder[0] >= 13){
         nearlyMeridian = (parseInt(twentyFourHolder[0])-12) + ":" + twentyFourHolder[1] + "pm";
     }
     else {
@@ -41,6 +41,16 @@
     }
     console.log(nearlyMeridian);
 
+    // Takes in a time/text in XX:xxTm format
+    var twentyFour2Meridian = prompt("When do you wakeup?");
+    var nearlyTwentyFour = twentyFour2Meridian.split(":");
+    console.log(nearlyTwentyFour);
+
+    if(parseInt(nearlyTwentyFour[0]) <= 9){
+        console.log("Condition passed");
+        nearlyTwentyFour.splice(0, 1, "0" + nearlyTwentyFour[0]);
+    }
+    console.log(nearlyTwentyFour);
 
 
 })();
