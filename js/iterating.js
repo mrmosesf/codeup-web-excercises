@@ -17,10 +17,24 @@
     // Bonus problems
 
     var meal = ["Fries, fries, and more fries", "Metric ton of sandwiches", "Your body weight in pizza", "Scavenge the local area", "Lick an apple", "A single peanut", "Zero carb water", "Photosynthesize", "Tacos", "Burgers", "Fried frish", "Nothing, you didn't pack a lunch"];
-
+    var howManyMeals = 6;
+    var mealDay =[];
 
     var whatMeal = Math.floor(Math.random() * 6) + 1;
 
-    // Make a function that will take an array value, i++, and place it in a array, while a nested on takes the new generated number, and checks if it isn't already in the array'
+    for(var i = 0; i < howManyMeals.length; ++i)
+    {
+        var repeatChecker = mealDay.indexOf(i);
+        for (var j = 0; j < mealDay.length; ++j){
+            if(repeatChecker !== mealDay[j]){
+                mealDay[j] = mealDay[i];
+            }
+
+        }
+    }
+
+    console.log(mealDay);
+
+    // Make a function that will take an array value, i++, and place it in a array, while a nested one takes the new generated number, and checks if it isn't already in the array'
 
 })();
