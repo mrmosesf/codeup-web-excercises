@@ -93,17 +93,36 @@
         document.getElementById('missionFin').addEventListener('click', missionHandler);
     })();
 
-    //    Bonus stopwatch problem
+    //Bonus stopwatch problem
     (function () {
-//        Sets display to read-only, .disabled might be a better use...
+        //Sets display to read-only, .disabled might be a better use...
         document.getElementById('timeDisplay').readOnly = true;
 
-//        Target all elements in stopwatch
+        //Target all elements in stopwatch
         var theTime = document.getElementById('timeDisplay');
         var startIt = document.getElementById('startBtn');
         var resetIt = document.getElementById('resetBtn');
         var pauseIt = document.getElementById('pauseBtn');
 
+        //Handlers for stopwatch elements
+        var timeHandler = function () {
+
+        };
+        var startHandler = function () {
+
+        };
+        var resetHandler = function () {
+
+        };
+        var pauseHandler = function () {
+
+        };
+
+        //Button event listeners
+        theTime.addEventListener('click', timeHandler);
+        startIt.addEventListener('click', startHandler);
+        resetIt.addEventListener('clock', resetHandler);
+        pauseIt.addEventListener('click', pauseHandler)
 
     })();
 </script>
