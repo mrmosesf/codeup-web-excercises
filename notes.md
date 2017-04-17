@@ -16,7 +16,7 @@ snapshot, like a picture of the file, called commits
 Git needs name and email, date/time, message/comments, identifier (hash)
 repository, a folder that stores code and git info (history of code)
 Github shares code
-git init, initializes a git reposity
+git init, initializes a git repository
 git status, outputs the current sate of your repository
 git commit, writes files
 git add <file name>
@@ -26,7 +26,7 @@ git log, history of changes
 git remote, a remote git repository
 origin, where everyone can get code, i.g. get remote add origin, starts adding code to a remote git
 push <location>, changes are sent to repository, i.g. git push origin master, with a confirmation where info is sent
-pull <location>, changes are received from reposoitory,
+pull <location>, changes are received from repository,
 .gitignore, start ignoring files and folders
 
 # Terminal commands
@@ -136,7 +136,7 @@ Represent state on a element, for instance the states of a link (anchor tag)
 # Fixed, fluid, and responsive
 
 Fixed was cool back when the base was 960px, but fluid is better and responsive is where it's at
-* Using the 'viewport' is a good way to control size for mobile sites, otherwise website will be hardwawre pixels:
+* Using the 'viewport' is a good way to control size for mobile sites, otherwise website will be hardware pixels:
     * ' meta name = "viewport" content="width=device-width, initial-scale=1" '
 * Media queries can be understood to be conditional stylesheets, that'll load certain styles only if device meets required size
 
