@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>DOM: Query and Modify</title>
+</head>
+<body>
+
+<h1 id="main-header">Hello World!</h1>
+<ul>
+    <li data-dbid="1">Item 1</li>
+    <li data-dbid="2">Item 2</li>
+    <li data-dbid="3">Item 3</li>
+    <li data-dbid="4">Item 4</li>
+    <li data-dbid="5">Item 5</li>
+</ul>
+<h2 id="sub-header">Hello Again.</h2>
+<p class="sub-paragraph">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+    aliquip ex ea commodo consequat. Duis aute irure dolor in
+    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+    culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+<p>
+    <button id="makeCool">What's the truth?</button>
+    <button id="makeBlue">The color of the sky</button>
+    <button id="makeGrey">Want it painted grey</button>
+    <button id="missionFin">Mission accomplished</button>
+
+</p>
+
+<hr>
+
+<p>
+    <input type="text" id="timeDisplay">
+</p>
+<p>
+    <button id="startBtn">Start/stop</button>
+    <button id="zeoBtn">Reset</button>
+    <button id="pauseBtn">Pause</button>
+</p>
+
+<script>
+    "use strict";
+    (function () {
+        "use strict";
+        // TODO: Uncomment next line and get the main header element by id
+        var mainHeader = document.getElementById('main-header');
+
+        // TODO: Set inner html of mainHeader to "JavaScript is Cool"
+        var coolHandler = function () {
+            mainHeader.innerHTML = "JavaScript is cool";
+        };
+        document.getElementById('makeCool').addEventListener('click', coolHandler);
+
+        // TODO: Uncomment the next line and get the sub header element by id
+        var subHeader = document.getElementById('sub-header');
+
+        // TODO: Set the text color of subHeader to blue
+        var blueHandler = function () {
+            subHeader.style.color = 'blue';
+        };
+        document.getElementById('makeBlue').addEventListener('click', blueHandler);
+        // TODO: Uncomment the next line and get all list items
+        var listItems = document.getElementsByTagName('li');
+
+        var greyHandler = function () {
+            // TODO: Set text color on every other list item to grey
+            for (var i = 0; i < listItems.length; i += 2) {
+                listItems[i].style.color = "grey";
+            }
+
+            // TODO: Set text color of li with dbid = 1 to blue
+            for (var i = 0; i < listItems.length; i += 2) {
+                if (listItems[i].getAttribute("data-dbid") === "1") {
+                    listItems[i].style.color = "blue";
+                }
+            }
+        };
+        document.getElementById('makeGrey').addEventListener('click', greyHandler);
+
+        // TODO: Uncomment the next line and get all elements with class name sub-paragraph
+        var subParagraphs = document.getElementsByClassName('sub-paragraph');
+
+        var missionHandler = function () {
+            // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+            subParagraphs[0].innerText = "Mission Accomplished";
+        };
+        document.getElementById('missionFin').addEventListener('click', missionHandler);
+    })();
+
+    //    Bonus stopwatch problem
+    (function () {
+//        Sets display to read-only, .disabled might be a better use...
+        document.getElementById('timeDisplay').readOnly = true;
+
+//        Target all elements in stopwatch
+        var theTime = document.getElementById('timeDisplay');
+        var startIt = document.getElementById('startBtn');
+        var resetIt = document.getElementById('resetBtn');
+        var pauseIt = document.getElementById('pauseBtn');
+
+
+    })();
+</script>
+</body>
+</html>
