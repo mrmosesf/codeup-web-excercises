@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Geocoder exercise</title>
+    <style>
+        #mapCanvas {
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+<div id="mapCanvas"></div>
+
+<label for="latText">Lat:</label>
+<input type="text" id="latText" placeholder="Enter LAT" value="29.426790">
+
+<label for="lngText">Lng:</label>
+<input type="text" id="lngText" placeholder="Enter LNG" value="-98.489574">
+
+<label for="zoom">Zoom</label>
+<input type="hidden" id="zoom" value="10">
+
+<button id="in">+</button>
+<button id="out">-</button>
+
+<button id="searchBtn">Search</button>
+
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD5CJoiPHOrp4wpG5hLndbNrmshERxaMMI"></script>
+
+<script type="text/javascript">
+    (function () {
+        "use strict";
+        var mapCanvas = document.getElementById('mapCanvas');
+
+        var latValue = parseFloat(document.getElementById('latText').value);
+        var lngValue = parseFloat(document.getElementById('lngText').value);
+        var zoomVal = parseFloat(document.getElementById('zoom').value);
+
+        var search = document.getElementById('searchBtn');
+        search.addEventListener('click', changeIt);
+
+        var myLatLng = {
+            lat: latValue,
+            lng: lngValue
+        };
+
+        var options = {
+            zoom: zoomVal,
+            center: myLatLng
+        };
+
+        var bump = new google.maps.InfoWindow({
+            content: "Maybe if I get this right, my headache will go away"
+        });
+
+        var map = new google.maps.Map(document.getElementById("mapCanvas"), options);
+        var geocoder = new google.maps.Geocoder();
+
+
+        function refresher() {
+            latValue = parseFloat(document.getElementById('latText').value);
+            lngValue = parseFloat(document.getElementById('lngText').value);
+        }
+
+
+        function changeIt() {
+            refresher();
+            console.log(latValue);
+            console.log(lngValue);
+            console.log(myLatLng);
+            geocoder.geocode({'location': {lat: latValue, lng: lngValue}}, function (results) {
+                map.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location
+                });
+                bump.open(map, marker);
+            })
+        }
+
+
+    })();
+</script>
+</body>
+</html>
