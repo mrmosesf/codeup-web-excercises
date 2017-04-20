@@ -14,7 +14,7 @@
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab commodi consequuntur deleniti distinctio earum
         error eum eveniet id illo incidunt ipsam molestiae natus neque qui, quos temporibus ut voluptates, voluptatibus.
     </p>
-    <p class="list-blurb">
+    <p class="codeup">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet at beatae consequatur dolore eius harum,
         illum in iste minus modi nisi placeat, possimus quas quisquam ratione voluptate! Ad autem, cumque cupiditate,
         distinctio ea eum eveniet explicabo hic, id labore minus natus nesciunt obcaecati qui quia recusandae
@@ -36,12 +36,12 @@
         fugiat maxime molestiae, molestias mollitia neque nesciunt officiis, perspiciatis quo repudiandae sequi tempore
         tenetur totam!
     </p>
-    <p class="list-blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus dolor dolorum earum eos
+    <p class="codeup">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus dolor dolorum earum eos
         error ex explicabo
         fuga fugiat fugit illum mollitia necessitatibus nihil obcaecati qui repellendus, repudiandae sapiente ullam
         vitae!
     </p>
-    <ul id="super-list">
+    <ul id="codeup">
         <li>Lorem ipsum dolor sit amet</li>
         <li>Lorem ipsum</li>
         <li>Lorem</li>
@@ -56,19 +56,17 @@
     </p>
 </div>
 
-
-<script src="js/jquery-2.2.4.js"></script>
 <script
         src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
         crossorigin="anonymous"></script>
 
-
 <script>
 
-    $('#super-list').ready(function () {
-        alert($('#expository').text());
-    })
+$(document).ready(function () {
+    $('.codeup').css('border', '1px solid red');
+});
+
 </script>
 
 
