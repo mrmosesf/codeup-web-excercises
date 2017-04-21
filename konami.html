@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script
+        src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+
+<script>
+    "use strict";
+
+    var theCode = "38 38 40 40 37 39 37 39 66 65 13";
+    var userEvents = [];
+
+    $(document).keyup(function () {
+
+//        Actively adds all keyboard events to an array that'll be searched for the Konami code
+        userEvents.push(event.keyCode);
+
+        if (event.keyCode === 13 || event.keyCode === 27) {
+            if(userEvents.join(' ').indexOf(theCode) !== -1){
+                alert("You finally did the thing!")
+            }
+        }
+    })
+</script>
+
+
+</body>
+</html>
