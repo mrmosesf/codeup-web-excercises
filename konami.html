@@ -3,8 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: auto 0px;
+            background-color: black;
+        }
+
+        video {
+            max-width: 100%;
+        }
+    </style>
 </head>
 <body>
+
+<video  id="theVid" src="video/circleOf.mp4" poster="img/poster_img.gif"></video>
+
+
 
 <script
         src="https://code.jquery.com/jquery-2.2.4.min.js"
@@ -20,6 +35,17 @@
     var userEvents = [];
 
     var audio = new Audio('audio/circleOf.m4a');
+//    var video = new Video('video/circleOf.mp4');
+
+    var vid = document.getElementById("theVid");
+
+    function playVid() {
+        vid.play();
+    }
+    function pauseVid() {
+        vid.pause();
+    }
+
 
     $(document).keyup(function () {
 
@@ -27,12 +53,18 @@
         userEvents.push(event.keyCode);
 
 //      Once the enter key is pressed, checks to see if the Konami code has been inputted in keyboard events
-//        if (event.keyCode === 13) {
+        if (event.keyCode === 13) {
             if (userEvents.join(' ').indexOf(theCode) !== -1) {
-                audio.play();
-                alert("You finally did the thing!")
+                userEvents = [];
+                alert("Whoops, wrong reference");
+//                audio.play();
+                playVid();
+//                $('theVid')[0].play();
+                if (event.keyCode === 27) {
+                    pauseVid();
+                }
             }
-//        }
+        }
     })
 </script>
 
