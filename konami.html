@@ -14,19 +14,25 @@
 <script>
     "use strict";
 
+    /*Initialized two variables, theCode stores the Konami code as a string where it'll be checked a string of the array,
+     userEvents, which get pushed all keyboard events*/
     var theCode = "38 38 40 40 37 39 37 39 66 65 13";
     var userEvents = [];
 
+    var audio = new Audio('audio/circleOf.m4a');
+
     $(document).keyup(function () {
 
-//        Actively adds all keyboard events to an array that'll be searched for the Konami code
+//      Actively adds all keyboard events to an array that'll be searched for the Konami code
         userEvents.push(event.keyCode);
 
-        if (event.keyCode === 13 || event.keyCode === 27) {
-            if(userEvents.join(' ').indexOf(theCode) !== -1){
+//      Once the enter key is pressed, checks to see if the Konami code has been inputted in keyboard events
+//        if (event.keyCode === 13) {
+            if (userEvents.join(' ').indexOf(theCode) !== -1) {
+                audio.play();
                 alert("You finally did the thing!")
             }
-        }
+//        }
     })
 </script>
 
