@@ -37,6 +37,10 @@
         var latValue = parseFloat(document.getElementById('latText').value);
         var lngValue = parseFloat(document.getElementById('lngText').value);
         var zoomVal = parseFloat(document.getElementById('zoom').value);
+        var zoomIn = document.getElementById('in');
+        var zoomOut = document.getElementById('out');
+        zoomIn.addEventListener('click', zoomingIn);
+        zoomOut.addEventListener('click', zoomingOut);
 
         var search = document.getElementById('searchBtn');
         search.addEventListener('click', changeIt);
@@ -48,7 +52,8 @@
 
         var options = {
             zoom: zoomVal,
-            center: myLatLng
+            center: myLatLng,
+            disableDefaultUI: true
         };
 
         var bump = new google.maps.InfoWindow({
@@ -58,10 +63,24 @@
         var map = new google.maps.Map(document.getElementById("mapCanvas"), options);
         var geocoder = new google.maps.Geocoder();
 
+        function zoomingIn() {
+            zoomVal = zoomVal + 1;
+            changeIt();
+        }
+
+        function zoomingOut() {
+            zoomVal = zoomVal - 1;
+            changeIt();
+        }
+
 
         function refresher() {
             latValue = parseFloat(document.getElementById('latText').value);
             lngValue = parseFloat(document.getElementById('lngText').value);
+            zoomVal = parseFloat(document.getElementById('zoom').value);
+            options = {
+                zoom: zoomVal
+            }
         }
 
 
@@ -70,6 +89,7 @@
             console.log(latValue);
             console.log(lngValue);
             console.log(myLatLng);
+            console.log(zoomVal);
             geocoder.geocode({'location': {lat: latValue, lng: lngValue}}, function (results) {
                 map.setCenter(results[0].geometry.location);
                 var marker = new google.maps.Marker({
