@@ -1,18 +1,18 @@
-(function(){
+(function () {
     "use strict";
 
     /**
      * TODO:
      * Create person object, store it in a variable named person
      */
-        var person = new Object();
+    var person = new Object();
     /**
      * TODO:
      * Create firstName and lastName properties in your person object, and
      * assign your name to them
      */
-        person.firstName = "Moses";
-        person.lastName = "Franco";
+    person.firstName = "Moses";
+    person.lastName = "Franco";
     /**
      * TODO:
      * Add a sayHello method to the person object that returns a greeting using
@@ -22,10 +22,11 @@
      * Example
      * person.sayHello() // returns "Hello from Rick Sanchez!"
      */
-        person.sayHello = function () {
-            console.log("Hello from " + person.firstName + " " + person.lastName + "!");
-        };
-        person.sayHello();
+    person.sayHello = function () {
+        return "Hello from " + this.firstName + " " + this.lastName + "!";
+        /*Updated to reflect the idea that .this will work as an alias, and a return*/
+    };
+    console.log(person.sayHello());
     /** TODO: Remember this problem from before?
      *
      * HEB has an offer for the shoppers that buy products amounting to more
@@ -48,12 +49,12 @@
         {name: 'George', amount: 320}
     ];
 
-    shoppers.forEach(function (shoppers) {
-        if(shoppers.amount > 200){
-            console.log(shoppers.name + " you owe: $" + shoppers.amount + ", but got a discount of: " + discountRate + "%. You now owe: $" + (shoppers.amount * (1 - discountRate)) + ".");
+    shoppers.forEach(function (shopper) {
+        if (shopper.amount > 200) {
+            console.log(shopper.name + " you owe: $" + shopper.amount + ", but got a discount of: " + discountRate + "%. You now owe: $" + (shopper.amount * (1 - discountRate)) + ".");
         }
         else {
-            console.log(shoppers.name + " you owe: $" + shoppers.amount +  ".");
+            console.log(shopper.name + " you owe: $" + shopper.amount + ".");
         }
     })
 
@@ -102,7 +103,7 @@
             title: "Lorem ipsum: quid dicis amicus?",
             author: {
                 firstName: "Brutus",
-                lastName: "Nonulli"
+                lastName: "Non-Nulli"
             }
         }
     ];
@@ -114,10 +115,52 @@
 // Loop through the array of books using .forEach and print out the specified information about each one.
 // start loop here
     books.forEach(function (books, i) {
-        console.log("Book #" + i);
+        console.log("Book #" + (i+1));
         console.log("Title: " + books.title);
         console.log("Author: " + books.author.firstName + " " + books.author.lastName);
         console.log("---");
     })
 // end loop here
+})();
+
+(function () {
+    "use strict";
+
+    var pet =
+        {
+            name: "Brownie",
+            species: "Chihuahua",
+            age: 7,
+            gender: "female",
+            clean: false,
+            hungry: false,
+            sleepy: true,
+            happy: true,
+            petFood: 10,
+            soap: 3
+        };
+
+    pet.callPet = function () { /*call’s out pet name*/
+        alert(pet.name + "!");
+    };
+
+    pet.playWithPet = function () { /*makes pet happy and hungry and dirty*/
+        pet.happy = true;
+        pet.hungry = true;
+        pet.clean = false;
+    };
+
+    pet.feedPet = function (petFood) { /*makes pet not hungry and sleepy and reduces petFood by 1*/
+        pet.hungry = false;
+        pet.sleepy = true;
+        pet.petFood = -1;
+    };
+
+    pet.makePetSleep = function () { /*makes pet not sleepy, not happy, and hungry, and 1 older*/
+
+    };
+
+    pet.cleanPet = function (soap) { /*makes pet not happy and clean and reduces soap by 1*/
+
+    };
 })();
