@@ -47,50 +47,43 @@
 <script>
     "use strict";
     (function () {
-        "use strict";
-        // TODO: Uncomment next line and get the main header element by id
+
         var mainHeader = document.getElementById('main-header');
-
-        // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-        var coolHandler = function () {
-            mainHeader.innerHTML = "JavaScript is cool";
-        };
-        document.getElementById('makeCool').addEventListener('click', coolHandler);
-
-        // TODO: Uncomment the next line and get the sub header element by id
         var subHeader = document.getElementById('sub-header');
-
-        // TODO: Set the text color of subHeader to blue
-        var blueHandler = function () {
-            subHeader.style.color = 'blue';
-        };
-        document.getElementById('makeBlue').addEventListener('click', blueHandler);
-        // TODO: Uncomment the next line and get all list items
         var listItems = document.getElementsByTagName('li');
+        var subParagraphs = document.getElementsByClassName('sub-paragraph');
 
-        var greyHandler = function () {
-            // TODO: Set text color on every other list item to grey
+        console.log(mainHeader, subParagraphs, listItems, subParagraphs);
+
+        function coolHandler () {
+            mainHeader.innerHTML = "JavaScript is cool";
+        }
+
+        function blueHandler () {
+            subHeader.style.color = 'blue';
+        }
+
+        function greyHandler () {
             for (var i = 0; i < listItems.length; i += 2) {
                 listItems[i].style.color = "grey";
             }
 
-            // TODO: Set text color of li with dbid = 1 to blue
             for (var i = 0; i < listItems.length; i += 2) {
                 if (listItems[i].getAttribute("data-dbid") === "1") {
                     listItems[i].style.color = "blue";
                 }
             }
-        };
-        document.getElementById('makeGrey').addEventListener('click', greyHandler);
+        }
 
-        // TODO: Uncomment the next line and get all elements with class name sub-paragraph
-        var subParagraphs = document.getElementsByClassName('sub-paragraph');
-
-        var missionHandler = function () {
-            // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+        function missionHandler () {
             subParagraphs[0].innerText = "Mission Accomplished";
-        };
-        document.getElementById('missionFin').addEventListener('click', missionHandler);
+        }
+
+        mainHeader.addEventListener('click', coolHandler);
+        subHeader.addEventListener('click', blueHandler);
+        listItems.addEventListener('click', greyHandler);
+        subParagraphs.addEventListener('click', missionHandler);
+
     })();
 
     //Bonus stopwatch problem
