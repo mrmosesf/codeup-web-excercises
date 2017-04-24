@@ -71,6 +71,30 @@
 
 <a href="#" class="toggle">Answer me</a>
 
+<h3 class="national-heading">Pullman</h3>
+<ul id="pullman-park" class="npsTraverse">
+    <li>National Monument</li>
+    <li>In Chicago, IL</li>
+    <li>First model, planned industrial community in the United States</li>
+    <li>Designated February 19, 2015</li>
+</ul>
+<h3 class="national-heading">Padre Island</h3>
+<ul id="padre-park" class="npsTraverse">
+    <li>National Seashore</li>
+    <li>In Corpus Christi, TX</li>
+    <li>Winds average 7-30mpg</li>
+    <li>First settlement here was in 1804</li>
+</ul>
+<h3 class="national-heading">Vanderbilt Mansion</h3>
+<ul id="vandy" class="npsTraverse">
+    <li>National Historic Site</li>
+    <li>Hyde Park, NY</li>
+    <li>Covers approximately 200 acres of land</li>
+    <li>Nearly 2 centuries old</li>
+</ul>
+
+<button id="traverseBtn">Click me!</button>
+
 <script
         src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
@@ -87,6 +111,17 @@
         //When clicked, the same dt will become highlighted
         $('dt').click(function () {
             $(this).css('background-color', 'yellow');
+        });
+        $("#traverseBtn").click(function () {
+            $(".npsTraverse").each(function (index, el) {
+                $(el).children().last().css('background-color', 'yellow');
+            });
+        });
+        $('.national-heading').click(function () {
+            $(this).next().children().css("font-weight", "bold");
+        });
+        $('.npsTraverse li').click(function () {
+            $(this).parent().children().last().css("color", "blue");
         });
     });
 </script>
