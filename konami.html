@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body {
-            margin: auto 0px;
+            margin: auto 0;
             background-color: black;
         }
 
@@ -17,8 +17,8 @@
 </head>
 <body>
 
-<video  id="theVid" src="video/circleOf.mp4" poster="img/poster_img.gif"></video>
-
+<video id="theVid" src="video/circleOf.mp4" poster="img/poster_img.gif"></video>
+<video id="goHome" src="video/itsOver.mp4"></video>
 
 
 <script
@@ -35,15 +35,27 @@
     var userEvents = [];
 
     var audio = new Audio('audio/circleOf.m4a');
-//    var video = new Video('video/circleOf.mp4');
+    //    var video = new Video('video/circleOf.mp4');
 
     var vid = document.getElementById("theVid");
+    var goHomeVid = document.getElementById('goHome');
 
     function playVid() {
         vid.play();
+        vid.currentTime = 200;
+        vid.controls = true;
+        vid.playbackRate = 20.0;
     }
     function pauseVid() {
         vid.pause();
+    }
+
+    function hideVid() {
+        vid.style.visibility('hidden');
+    }
+
+    function heyFerris() {
+        goHomeVid.play();
     }
 
 
@@ -56,13 +68,13 @@
         if (event.keyCode === 13) {
             if (userEvents.join(' ').indexOf(theCode) !== -1) {
                 userEvents = [];
-                alert("Whoops, wrong reference");
-//                audio.play();
+                alert("Konami what?");
                 playVid();
-//                $('theVid')[0].play();
-                if (event.keyCode === 27) {
-                    pauseVid();
+                if (vid.ended) {
+                    hideVid();
+                    heyFerris();
                 }
+
             }
         }
     })
