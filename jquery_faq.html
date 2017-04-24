@@ -77,9 +77,11 @@
         crossorigin="anonymous"></script>
 
 <script>
+    //Targets a button that will toggle the .invisible, between hiding and showing the dd elements
     $('.toggleBtn').click(function () {
         $('dd').toggleClass('invisible');
     });
+//  When clicked, the same dt will become highlighted
     $('dt').click(function () {
        $(this).css("background-color", "yellow");
     });
