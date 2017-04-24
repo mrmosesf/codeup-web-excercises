@@ -7,6 +7,12 @@
         .invisible {
             display: none;
         }
+        .framed>div{
+            border: groove 5px gold;
+            float: left;
+            margin: 25px 25px;
+            padding: 5px 5px;
+        }
     </style>
 </head>
 <body>
@@ -94,6 +100,25 @@
 </ul>
 
 <button id="traverseBtn">Click me!</button>
+<br><br>
+
+
+<div class="framed">
+    <div id="art-left">
+        <img src="http://placehold.it/300?text=1" alt="Left image">
+        <button>Swap</button>
+    </div>
+
+    <div id="art-center">
+        <img src="http://placehold.it/300?text=2" alt="Center image">
+        <button>Swap</button>
+    </div>
+
+    <div id="art-right">
+        <img src="http://placehold.it/300?text=3" alt="Right image">
+        <button>Swap</button>
+    </div>
+</div>
 
 <script
         src="https://code.jquery.com/jquery-2.2.4.min.js"
