@@ -112,14 +112,17 @@
         $('dt').click(function () {
             $(this).css('background-color', 'yellow');
         });
+        //When button is pressed, the last li element for each ul is highlighted yellow
         $("#traverseBtn").click(function () {
             $(".npsTraverse").each(function (index, el) {
                 $(el).children().last().css('background-color', 'yellow');
             });
         });
+        //When a h3 element is clicked, the next element, a ul, will have its li elements set to bold
         $('.national-heading').click(function () {
             $(this).next().children().css("font-weight", "bold");
         });
+        //When any li in a ul is clicked, the last li in that ul is changed to a blue font
         $('.npsTraverse li').click(function () {
             $(this).parent().children().last().css("color", "blue");
         });
