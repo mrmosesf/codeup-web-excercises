@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>JQuery FAQ</title>
     <style>
-        .invisible{
+        .invisible {
             display: none;
         }
     </style>
@@ -69,7 +69,7 @@
     </dd>
 </dl>
 
-    <button class="toggleBtn">Answer me</button>
+<a href="#" class="toggle">Answer me</a>
 
 <script
         src="https://code.jquery.com/jquery-2.2.4.min.js"
@@ -77,13 +77,17 @@
         crossorigin="anonymous"></script>
 
 <script>
-    //Targets a button that will toggle the .invisible, between hiding and showing the dd elements
-    $('.toggleBtn').click(function () {
-        $('dd').toggleClass('invisible');
-    });
-//  When clicked, the same dt will become highlighted
-    $('dt').click(function () {
-       $(this).css("background-color", "yellow");
+
+    $(document).ready(function () {
+        "use strict";
+        //Targets a button that will toggle the .invisible, between hiding and showing the dd elements
+        $('.toggle').click(function () {
+            $('dd').toggleClass('invisible');
+        });
+        //When clicked, the same dt will become highlighted
+        $('dt').click(function () {
+            $(this).css('background-color', 'yellow');
+        });
     });
 </script>
 
