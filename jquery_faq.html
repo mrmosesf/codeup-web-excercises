@@ -15,8 +15,45 @@
             padding: 5px 5px;
         }
     </style>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+
+<!--An alert, informing the user that this website is still very much still under construction-->
+<div class="alert alert-info alert-dismissible" id="regAlert" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+    <strong>Hey!</strong> This website is still under construction, but feel free to still check it out.
+</div>
+
+<!--Adding in a modal, because why not?-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus ad aliquid at autem, cum,
+                cumque cupiditate dignissimos et exercitationem facere impedit ipsa maiores molestias nam nemo neque
+                nihil nisi nostrum officia placeat praesentium recusandae reiciendis repudiandae sequi soluta sunt
+                tenetur vitae voluptas voluptate. Accusantium ad adipisci corporis dolorum, error eveniet expedita
+                ipsum, laudantium nesciunt officia provident temporibus. Amet asperiores autem debitis facilis,
+                illum libero maxime provident quaerat quam voluptatibus. Ab accusamus architecto at consequatur
+                cumque debitis earum fugiat harum in ipsam iste iure laboriosam libero magni natus neque odio
+                pariatur, porro quas quasi quia quod rem velit voluptatem voluptatum!
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div id="signUp">
     <h1>Would you like to sign up for our newsletter?</h1>
@@ -24,6 +61,8 @@
 </div>
 
 <h2 id="register">You know what would be cool? <a href="#">Registering!</a></h2>
+
+<br><br>
 
 <dl>
     <dt>Who is the director of the National Parks Service?</dt>
@@ -128,9 +167,12 @@
     </div>
 </div>
 
-<script
-        src="https://code.jquery.com/jquery-2.2.4.min.js"
-        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+<!--Latest and minified JQuery-->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
 
 <script>
@@ -153,8 +195,8 @@
         });
         //When a h3 element is clicked, the next element, a ul, will have its li elements set to bold
         /*$('.national-heading').click(function () {
-            $(this).next().children().css("font-weight", "bold");
-        });*/
+         $(this).next().children().css("font-weight", "bold");
+         });*/
         //When any li in a ul is clicked, the first li in that ul is changed to a blue font
         $('.npsTraverse li').click(function () {
             $(this).parent().children().first().css("color", "blue");
@@ -168,10 +210,16 @@
         $('.npsTraverse').hide();
         $('.national-heading').click(function () {
             $(this).next().slideDown();
-        })
+        });
         //After a delay, the user will be prompter to register for the site
-        $('#register').hide();
-        $('#register').delay(8000).slideDown();
+        $('#register').hide().delay(4000).slideDown();
+
+        $('#regAlert').hide().delay(2000).fadeIn();
+
+        //Sets delay for the modal
+        setTimeout(function () {
+            $('#myModal').modal('show');
+        }, 8000)
     });
 </script>
 
