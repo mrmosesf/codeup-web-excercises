@@ -18,6 +18,12 @@
 </head>
 <body>
 
+<div id="signUp">
+    <h1>Would you like to sign up for our newsletter?</h1>
+    <span>X</span>
+</div>
+
+
 <dl>
     <dt>Who is the director of the National Parks Service?</dt>
     <dd class="invisible">
@@ -145,13 +151,23 @@
             });
         });
         //When a h3 element is clicked, the next element, a ul, will have its li elements set to bold
-        $('.national-heading').click(function () {
+        /*$('.national-heading').click(function () {
             $(this).next().children().css("font-weight", "bold");
-        });
+        });*/
         //When any li in a ul is clicked, the first li in that ul is changed to a blue font
         $('.npsTraverse li').click(function () {
             $(this).parent().children().first().css("color", "blue");
         });
+
+        //Hides a prompt to signup for a newsletter
+        $('span').click(function () {
+            $('#signUp').hide();
+        });
+        //Ul next to each h3 starts out hidden, and when header element is clicked, respective lists slide out
+        $('.npsTraverse').hide();
+        $('.national-heading').click(function () {
+            $(this).next().slideDown();
+        })
     });
 </script>
 
