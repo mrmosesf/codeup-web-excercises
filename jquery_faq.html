@@ -23,6 +23,7 @@
     <span>X</span>
 </div>
 
+<h2 id="register">You know what would be cool? <a href="#">Registering!</a></h2>
 
 <dl>
     <dt>Who is the director of the National Parks Service?</dt>
@@ -168,6 +169,9 @@
         $('.national-heading').click(function () {
             $(this).next().slideDown();
         })
+        //After a delay, the user will be prompter to register for the site
+        $('#register').hide();
+        $('#register').delay(8000).slideDown();
     });
 </script>
 
