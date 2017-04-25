@@ -5,9 +5,10 @@
     <title>JQuery FAQ</title>
     <style>
         .invisible {
-            display: none;
+            color: transparent;
         }
-        .framed>div{
+
+        .framed > div {
             border: groove 5px gold;
             float: left;
             margin: 25px 25px;
@@ -147,9 +148,9 @@
         $('.national-heading').click(function () {
             $(this).next().children().css("font-weight", "bold");
         });
-        //When any li in a ul is clicked, the last li in that ul is changed to a blue font
+        //When any li in a ul is clicked, the first li in that ul is changed to a blue font
         $('.npsTraverse li').click(function () {
-            $(this).parent().children().last().css("color", "blue");
+            $(this).parent().children().first().css("color", "blue");
         });
     });
 </script>
