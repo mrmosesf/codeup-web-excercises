@@ -10,6 +10,11 @@
 
 <h1 class="page-header">Weather application</h1>
 
+<div class="container" id="weatherForecasts">
+    <img src="" alt="">
+
+</div>
+
 
 <script
         src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -32,15 +37,35 @@
             var count = 3;
             var units = "imperial";
             var url = "";
+            var lat = "50";
+            var lon = "0";
+            var dayWeather = $('#weatherForecasts');
 
             //Creates a URL based on parameters passed
             function weatherURL() {
-                url = "http://api.openweathermap.org/data/2.5/forecast/daily?q=" + q + "&units=" + units + "&cnt=" + count;
+                url = "http://api.openweathermap.org/data/2.5/forecast/daily?lat=" + lat + "&lon=" + lon + "&units=" + units + "&cnt=" + count;
                 return url;
             }
 
+            function weatherIcon(icon) {
+                var iconURL = "http://openweathermap.org/img/w/" + icon + ".png"
+                return iconURL;
+            }
+
             function weatherDisplay(weatherData) {
-                console.log(weatherData);
+                var displayContent = "";
+//                Outputs the city and country for weather
+                displayContent += "<div id='cityCountry'>" + weatherData.city.name + ", " + weatherData.city.country + "</div>";
+//                Displays a lot of stuff
+                $(weatherData.list).each(function (index, element) {
+                    displayContent += "<div class='minMaxTemp'>" + parseInt(element.temp.max) + "&deg / " + parseInt(element.temp.min) + "&deg</div>";
+                    displayContent += "<img class='conditionIcon' src='" + (weatherIcon(element.weather[0].icon)) + "'>";
+                    displayContent += "<div class='weatherConditions'>" + "<b>" + element.weather[0].main + ":</b> " + element.weather[0].description + "</div>";
+                    displayContent += "<div class='humidity'> <b>Humidity: </b>" + element.humidity + "%</div>";
+                    displayContent += "<div class='wind'><b>Wind: </b>" + element.speed + "mph at: " + element.deg + "&deg</div>";
+                    displayContent += "<div class='pressure'><b>Pressure: </b>" + element.pressure + "hPa</div>";
+                });
+                dayWeather.html(displayContent);
             }
 
             $.get(weatherURL(), {
@@ -50,7 +75,6 @@
             }).fail(function () {
                 console.log("It failed")
             })
-
         });
     })();
 </script>
