@@ -14,7 +14,12 @@
     <img src="" alt="">
 
 </div>
+<div id="mapCanvas">
 
+</div>
+
+
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD5CJoiPHOrp4wpG5hLndbNrmshERxaMMI"></script>
 
 <script
         src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -58,14 +63,18 @@
                 displayContent += "<div id='cityCountry'>" + weatherData.city.name + ", " + weatherData.city.country + "</div>";
 //                Displays a lot of stuff
                 $(weatherData.list).each(function (index, element) {
-                    displayContent += "<div class='minMaxTemp'>" + parseInt(element.temp.max) + "&deg / " + parseInt(element.temp.min) + "&deg</div>";
+                    displayContent += "<div class='col-sm-3'><div class='minMaxTemp'>" + parseInt(element.temp.max) + "&deg / " + parseInt(element.temp.min) + "&deg</div>";
                     displayContent += "<img class='conditionIcon' src='" + (weatherIcon(element.weather[0].icon)) + "'>";
                     displayContent += "<div class='weatherConditions'>" + "<b>" + element.weather[0].main + ":</b> " + element.weather[0].description + "</div>";
                     displayContent += "<div class='humidity'> <b>Humidity: </b>" + element.humidity + "%</div>";
                     displayContent += "<div class='wind'><b>Wind: </b>" + element.speed + "mph at: " + element.deg + "&deg</div>";
-                    displayContent += "<div class='pressure'><b>Pressure: </b>" + element.pressure + "hPa</div>";
+                    displayContent += "<div class='pressure'><b>Pressure: </b>" + element.pressure + "hPa</div></div>";
                 });
                 dayWeather.html(displayContent);
+            }
+            
+            function mapDisplay() {
+                
             }
 
             $.get(weatherURL(), {
