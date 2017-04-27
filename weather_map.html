@@ -11,28 +11,42 @@
 <h1 class="page-header">Weather application</h1>
 
 
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>-->
+<script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
 
-<!--Latest and minified JQuery-->
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
+
 <script>
 
     (function () {
         $(document).ready(function () {
 
-            var url = "http://api.openweathermap.org/data/2.5/weather";
+            //Global variables
             var api = "7eff1d2bb6524163e1f92e36adbd8b4d";
+            var q = "San Antonio";
+            var count = 3;
+            var units = "imperial";
+            var url = "";
 
-            $.get(url, {
-                APPID: api,
-                q: "San Antonio, TX"
+            //Creates a URL based on parameters passed
+            function weatherURL() {
+                url = "http://api.openweathermap.org/data/2.5/forecast/daily?q=" + q + "&units=" + units + "&cnt=" + count;
+                return url;
+            }
+
+            function weatherDisplay(weatherData) {
+                console.log(weatherData);
+            }
+
+            $.get(weatherURL(), {
+                APPID: api
             }).done(function (data) {
-                console.log(data)
+                weatherDisplay(data)
             }).fail(function () {
                 console.log("It failed")
             })
