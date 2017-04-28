@@ -45,7 +45,7 @@
         $(document).ready(function () {
 
             //Global variables
-            var api = "7eff1d2bb6524163e1f92e36adbd8b4d";
+            var api = "7f8e3aa0aad113510e0c1eaafd1c17b8";
             var q = "San Antonio";
             var count = 3;
             var units = "imperial";
@@ -56,9 +56,10 @@
             var latLng = new google.maps.LatLng(lat, lon);
             var mapTarget = document.getElementById('mapCanvas');
             var mapOptions = {
-                zoom: 10,
+                zoom: 3,
                 center: latLng
             };
+
             var map = new google.maps.Map(mapTarget, mapOptions);
             var geocoder = new google.maps.Geocoder;
             var marker = new google.maps.Marker({
@@ -78,8 +79,21 @@
                 return iconURL;
             }
 
+            function getWeather() {
+                $.get(weatherURL(), {
+                    APPID: api
+                }).done(function (data) {
+                    weatherDisplay(data)
+                }).fail(function () {
+                    console.log("It failed")
+                })
+            }
+
+            getWeather();
+
             function weatherDisplay(weatherData) {
                 var displayContent = "";
+                console.log(weatherData);
                 //Outputs the city and country for weather
                 displayContent += "<div id='cityCountry'><h1>" + weatherData.city.name + ", " + weatherData.city.country + "</h1></div>";
                 //Displays a lot of stuff
@@ -97,17 +111,14 @@
 
 
             function mapDisplay() {
-                $('#submit').click(function () {
-                    geocodeLatLng(geocoder, map);
-                });
-                marker.addListener('dragend', resetLatLng());
+                resetLatLng();
             }
 
             function geocodeLatLng(geocoder, map) {
                 geocoder.geocode({'location': latLng}, function (results, status) {
                     if (status === 'OK') {
                         if (results[1]) {
-                            map.setZoom(11);
+                            map.setZoom(3);
                         } else {
                             window.alert('No results found');
                         }
@@ -118,17 +129,14 @@
             }
 
             function resetLatLng() {
-                console.log(marker.getPosition().lat());
-                console.log(marker.getPosition().lng());
+                var markerListener = marker.addListener('dragend', function () {
+                    lat = marker.getPosition().lat();
+                    lon = marker.getPosition().lng();
+                    getWeather();
+                    mapDisplay();
+                    google.maps.event.clearListeners(marker, 'dragend');
+                });
             }
-
-            $.get(weatherURL(), {
-                APPID: api
-            }).done(function (data) {
-                weatherDisplay(data)
-            }).fail(function () {
-                console.log("It failed")
-            })
         });
     })();
 </script>
