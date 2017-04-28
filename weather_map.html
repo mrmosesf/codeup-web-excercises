@@ -76,10 +76,12 @@
             var units = "imperial";
             var url = "";
             //Initialize variables to be used between Google Maps and OpenWeatherMap API
-            var lat = "29.4241";
-            var lon = "-98.4936";
+            var lat = "45";
+            var lon = "45";
             //Target to allow easier insert of content
             var dayWeather = $('#weatherForecasts');
+            //Special var for the background
+            var dayMain = "";
             //Google Maps friendly LatLng
             var latLng = new google.maps.LatLng(lat, lon);
             var mapTarget = document.getElementById('mapCanvas');
@@ -288,7 +290,8 @@
                         ]
                     }
                 ]
-            }; /*mapOptions*/
+            };
+            /*mapOptions*/
 
             var map = new google.maps.Map(mapTarget, mapOptions);
             var geocoder = new google.maps.Geocoder;
@@ -317,7 +320,9 @@
                 }).fail(function () {
                     console.log("It failed")
                 })
-            } /*getWeather*/
+            }
+
+            /*getWeather*/
 
             getWeather();
 
@@ -328,7 +333,7 @@
                 displayContent += "<div id='cityCountry'><h1>" + weatherData.city.name + ", " + weatherData.city.country + "</h1></div>";
                 //Displays a lot of stuff
                 $(weatherData.list).each(function (index, element) {
-                    displayContent += "<div class='col-sm-6'><div class='maxMinTemp'>" + parseInt(element.temp.max) + "&deg / " + parseInt(element.temp.min) + "&deg</div>";
+                    displayContent += "<div class='col-sm-3'><div class='maxMinTemp'>" + parseInt(element.temp.max) + "&deg / " + parseInt(element.temp.min) + "&deg</div>";
                     displayContent += "<img class='conditionIcon' src='" + (weatherIcon(element.weather[0].icon)) + "'>";
                     displayContent += "<div class='weatherConditions'>" + "<b>" + element.weather[0].main + ":</b> " + element.weather[0].description + "</div>";
                     displayContent += "<div class='humidity'> <b>Humidity: </b>" + element.humidity + "%</div>";
@@ -337,11 +342,16 @@
                     displayContent += "<div class='pressure'><b>Pressure: </b>" + element.pressure + "hPa</div></div>";
                 });
                 dayWeather.html(displayContent);
+                dayMain = weatherData.list[0].weather[0].main;
+
                 mapDisplay();
-            } /*weatherDisplay*/
+            }
+
+            /*weatherDisplay*/
 
             function mapDisplay() {
                 resetLatLng();
+                $("#searchBtn").click(geoExperiment());
             }
 
             function geocodeLatLng(geocoder, map) {
@@ -356,18 +366,50 @@
                         window.alert('Geocoder failed due to: ' + status);
                     }
                 });
-            } /*geocodeLatLng*/
+            }
+
+            /*geocodeLatLng*/
 
             function resetLatLng() {
                 var markerListener = marker.addListener('dragend', function () {
                     lat = marker.getPosition().lat();
                     lon = marker.getPosition().lng();
                     getWeather();
-                    mapDisplay();
+//                    mapDisplay();
                     google.maps.event.clearListeners(marker, 'dragend');
                 });
-            } /*resetLatLng*/
-        })(); /*IIFE*/
+                marker.position = latLng;
+            }
+
+
+            function geoExperiment() {
+                var startPos;
+                var nudge = document.getElementById("nudge");
+
+                var geoSuccess = function(position) {
+                    // Do magic with location
+                    startPos = position;
+                    console.log(startPos.coords.latitude);
+                    console.log(startPos.coords.longitude);
+                    lat = startPos.coords.latitude;
+                    lon = startPos.coords.latitude;
+                    console.log("Did it work?");
+                    getWeather();
+                };
+                var geoError = function(error) {
+                    switch(error.code) {
+                        case error.TIMEOUT:
+                            // Whoops...
+                            console.log("Something didn't go right");
+                            break;
+                    }
+                };
+                navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
+            } /*geoExperiment();*/
+
+            /*resetLatLng*/
+        })();
+        /*IIFE*/
     </script>
 </body>
 </html>
