@@ -59,6 +59,13 @@
                 zoom: 10,
                 center: latLng
             };
+            var map = new google.maps.Map(mapTarget, mapOptions);
+            var geocoder = new google.maps.Geocoder;
+            var marker = new google.maps.Marker({
+                draggable: true,
+                position: latLng,
+                map: map
+            });
 
             //Creates a URL based on parameters passed
             function weatherURL() {
@@ -90,12 +97,10 @@
 
 
             function mapDisplay() {
-                var map = new google.maps.Map(mapTarget, mapOptions);
-                var geocoder = new google.maps.Geocoder;
-
                 $('#submit').click(function () {
                     geocodeLatLng(geocoder, map);
                 });
+                marker.addListener('dragend', resetLatLng());
             }
 
             function geocodeLatLng(geocoder, map) {
@@ -103,11 +108,6 @@
                     if (status === 'OK') {
                         if (results[1]) {
                             map.setZoom(11);
-                            var marker = new google.maps.Marker({
-                                draggable: true,
-                                position: latLng,
-                                map: map
-                            });
                         } else {
                             window.alert('No results found');
                         }
@@ -115,6 +115,11 @@
                         window.alert('Geocoder failed due to: ' + status);
                     }
                 });
+            }
+
+            function resetLatLng() {
+                console.log(marker.getPosition().lat());
+                console.log(marker.getPosition().lng());
             }
 
             $.get(weatherURL(), {
